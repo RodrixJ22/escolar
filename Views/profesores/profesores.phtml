@@ -1,0 +1,262 @@
+<div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                              
+                                
+
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <center>
+                                        <strong>Registro y listado De Docentes</strong>
+                                    </center>
+
+                                          
+                        
+                    
+                        <button class="btn btn-info float-right" data-toggle="modal" data-target="#ingresarprof">
+                        <span class="fa fa-plus"></span>
+                Agregar nuevo 
+				
+			</button>
+   </div>
+<div class="card-body card-block">
+
+
+<table id="table" class="display">
+<thead>
+
+<tr>
+<th>Id</th>
+<th>Primer Nombre</th>
+<th>Segundo Nombre</th>
+<th>Primer Apellido</th>
+<th>Segundo Apellido</th>
+<th>Cedula</th>
+<th>Fecha de Nacimiento</th>
+<th>Edad</th>
+<th>Telefono</th>
+<th>Dirección</th>
+<th>Codigo Docente</th>
+<th>Celular</th>
+<th>Correo</th>
+<th>Acción</th>
+
+
+
+
+</tr>
+
+
+</thead>
+
+<tbody>
+
+<?= $this->tabla ?>
+
+
+</tbody>
+
+
+</table>
+
+                                 
+
+                                    
+</div>
+
+
+                                    
+
+
+
+
+                                    <div class="card-footer">
+                                        <center>
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                           Registrar Docente
+                                        </button>
+                                    </center>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                            
+                        </div>
+
+                        </div>
+
+
+
+
+ <!-- Modal para insertar los datos-->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="ingresarprof" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Profesores</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="POST" id="agregarProf">
+
+      <div class="modal-body">
+        
+
+      <label>Primer Nombre</label>
+    <input type="text"  id="pn" placeholder="1er Nombre del Docente" class="form-control">
+
+     <label>Segundo Nombre</label>
+                                        
+    <input  id="sn" placeholder="2do Nombre del Docente" class="form-control">
+                                                                                        
+   <label>Primer Apellido</label>
+   <input  id="pa" placeholder="1er Apellido del Docente" class="form-control">
+                                    
+                                                                                      
+ <label >Segundo Apellido</label>
+ <input  id="sa" placeholder="2do Apellido del Docente" class="form-control">
+ 
+ <label >Cedula</label>
+ <input  id="cedula" placeholder="Cedula del Docente" class="form-control">
+                                            
+                                                                                          
+ <label>Fecha de Nacimiento</label>
+<input id="fecha" type="date" placeholder="dd-mm-aaaa" class="form-control">
+                       
+                                                                                                       
+<label >Edad</label>
+<input  id="edad" placeholder="Edad del Docente" class="form-control">
+                                                                                                      
+<label >Celular</label>
+<input  id="celular" placeholder="Movil del Docente" class="form-control">
+                                                        
+                                                                                                           
+<label>Telefono </label>
+<input  id="telefono" placeholder="Telefono del Docente" class="form-control">
+                                                                                                             
+ <label>Direccion </label>
+<input  id="direccion" placeholder="Dirección del Docente" class="form-control">
+     
+                                                                                                                    
+ <label>Codigo Docente </label>
+<input  id="cod" placeholder="Dirección del Docente" class="form-control">
+
+<label>Correo </label>
+<input id="correo" placeholder="Correo Electronico del docente" class="form-control">
+               
+
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       <button type="submit" class="btn btn-success">
+        <span class="fa fa-plus"></span> Agregar
+        </button>
+      </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+ <!-- Modal para la edicion de los datos-->
+                        
+
+<div class="modal fade" id="editarprof" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Actualizar Profesores</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="POST" id="formEditarP">
+
+      <div class="modal-body">
+      <label for="">ID</label>
+      <input type="number" class="form-control" id="idp" readonly="readonly"/>  
+
+      <label>Primer Nombre</label>
+    <input type="text"  id="pnu" placeholder="1er Nombre del Docente" class="form-control">
+
+     <label>Segundo Nombre</label>
+                                        
+    <input  id="snu" placeholder="2do Nombre del Docente" class="form-control">
+                                                                                        
+   <label>Primer Apellido</label>
+   <input  id="pau" placeholder="1er Apellido del Docente" class="form-control">
+                                    
+                                                                                      
+ <label >Segundo Apellido</label>
+ <input  id="sau" placeholder="2do Apellido del Docente" class="form-control">
+ 
+ <label >Cedula</label>
+ <input  id="cedulau" placeholder="Cedula del Docente" class="form-control">
+                                            
+                                                                                          
+ <label>Fecha de Nacimiento</label>
+<input id="fechau" type="date" placeholder="dd-mm-aaaa" class="form-control">
+                       
+                                                                                                       
+<label >Edad</label>
+<input  id="edadu" placeholder="Edad del Docente" class="form-control">
+                                                                                                      
+<label >Celular</label>
+<input  id="celularu" placeholder="Movil del Docente" class="form-control">
+                                                        
+                                                                                                           
+<label>Telefono </label>
+<input  id="telefonou" placeholder="Telefono del Docente" class="form-control">
+                                                                                                             
+ <label>Direccion </label>
+<input  id="direccionu" placeholder="Dirección del Docente" class="form-control">
+     
+                                                                                                                    
+ <label>Codigo Docente </label>
+<input  id="codu" placeholder="Dirección del Docente" class="form-control">
+
+<label>Correo </label>
+<input id="correou" placeholder="Correo Electronico del docente" class="form-control">
+               
+
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">
+        <span class="fa fa-plus"></span> Actualizar
+        </button>
+      </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+ 
+
+ 

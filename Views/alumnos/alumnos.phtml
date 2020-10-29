@@ -1,0 +1,298 @@
+<div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                              
+                                
+
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <center>
+                                        <strong>Registro y listado De Alumnos</strong>
+                                    </center>
+
+                                          
+                        
+                    
+                        <button class="btn btn-info float-right" data-toggle="modal" data-target="#agregaralumno">
+                        <span class="fa fa-plus"></span>
+                Agregar nuevo 
+				
+			</button>
+
+
+</div>
+<div class="card-body card-block">
+
+<table id="table" class="display">
+<thead>
+
+<tr>
+<th>Id</th>
+<th>Primer Nombre</th>
+<th>Segundo Nombre</th>
+<th>Primer Apellido</th>
+<th>Segundo Apellido</th>
+<th>Fecha de Nacimiento</th>
+<th>Edad</th>
+<th>Sexo</th>
+<th>Estado De Matricula</th>
+<th>Codigo Alumno</th>
+<th>Telefono</th>
+<th>Dirección</th>
+<th>Departamento</th>
+<th>Municipio</th>
+<th>Nombre Tutor</th>
+<th>Accion</th>
+</tr>
+
+
+</thead>
+
+<tbody>
+
+<?= $this->tabla ?>
+
+
+</tbody>
+
+
+</table>
+
+                                   
+
+                                    
+</div>
+
+
+                                    
+
+
+
+
+                                    <div class="card-footer">
+                                        <center>
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                           Registrar Docente
+                                        </button>
+                                    </center>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                            
+                        </div>
+
+                        </div>
+
+
+
+
+ <!-- Modal para insertar los datos-->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="agregaralumno" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Alumnos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form method="POST" id="agregarAlum">
+      <div class="modal-body">
+      <label>Primer Nombre</label>
+    <input type="text" id="pna" placeholder="1er Nombre del Alumno" class="form-control">
+
+     <label>Segundo Nombre</label>
+    <input  id="sna" placeholder="2do Nombre del Alumno" class="form-control">
+                                        
+                                                                                        
+   <label>Primer Apellido</label>
+   <input  id="paa" placeholder="1er Apellido del Alumno" class="form-control">
+                                    
+                                                                                      
+ <label >Segundo Apellido</label>
+ <input  id="saa" placeholder="2do Apellido del Alumno" class="form-control">
+                                            
+                                                                                          
+ <label>Fecha de Nacimiento</label>
+<input id="fechaa" type="date" placeholder="dd-mm-aaaa" class="form-control">
+
+
+ <label >Edad</label>
+ <input id="edada" placeholder="Edad del Alumno" class="form-control">
+                       
+                                                                                                       
+ <label>Sexo</label>
+            <select id="sexoa" class="form-control input-sm">
+            <option value="0">Seleccione Sexo</option>
+                                                          <option value="Masculino">Masculino</option>
+                                                          <option value="Femenino">Femenino</option>                                    
+        </select>
+
+<label>Estado Matricula</label>
+<select id="esta" class="form-control input-sm">
+            <option value="0">Seleccione Estado</option>
+                                                          <option value="Activo">Activo</option>
+                                                          <option value="Baja">De Baja</option> 
+                                                          <option value="Egresado">Egresado</option>                                    
+        </select>
+    
+
+
+       
+                                         
+                                                                                                           
+<label>Numero de Telefono o Celular</label>
+<input  id="tela" placeholder="Telefono o Celular de Contacto" class="form-control">
+    
+<label >Codigo De Alumno</label>
+<input  id="codigoa" placeholder="Codigo De Matricula" class="form-control">
+                                                        
+<label >Departamento</label>
+<input id="departa" placeholder="Departamento" class="form-control">
+                                                        
+<label >Municipio</label>
+<input  id="municipio" placeholder="Municipio" class="form-control">
+                                                        
+
+
+                                                                                             
+<label>Direccion </label>
+<input  id="direcciona" placeholder="Dirección del Alumno" class="form-control">
+     
+                                                                                                                    
+ <label>Nombre Tutor </label>
+<input  id="tutor" placeholder="Nombre Tutor" class="form-control">
+
+
+
+        
+                                                     
+        	
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" id="guardaralum" class="btn btn-primary">
+        <span class="fa fa-plus"></span> Agregar Alumno
+        </button>
+       
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal para edicion de datos
+
+-->
+<div class="modal fade" id="editarA" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Actualizar Usuarios</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="POST" id="formEditarA">
+      <div class="modal-body">
+      <label for="">ID</label>
+<input type="number" class="form-control" id="ida" readonly="readonly"/>
+<label>Primer Nombre</label>
+<input type="text" id="pnau" placeholder="1er Nombre del Alumno" class="form-control">
+
+<label>Segundo Nombre</label>
+<input  id="snau" placeholder="2do Nombre del Alumno" class="form-control">
+                                  
+                                                                                  
+<label>Primer Apellido</label>
+<input  id="paau" placeholder="1er Apellido del Alumno" class="form-control">
+                              
+                                                                                
+<label >Segundo Apellido</label>
+<input  id="saau" placeholder="2do Apellido del Alumno" class="form-control">
+                                      
+                                                                                    
+<label>Fecha de Nacimiento</label>
+<input id="fechaau" type="date" placeholder="dd-mm-aaaa" class="form-control">
+
+
+<label >Edad</label>
+<input id="edadau" placeholder="Edad del Alumno" class="form-control">
+                 
+                                                                                                 
+<label>Sexo</label>
+      <select id="sexoau" class="form-control input-sm">
+      <option value="0">Seleccione Sexo</option>
+                                                    <option value="Masculino">Masculino</option>
+                                                    <option value="Femenino">Femenino</option>                                    
+  </select>
+
+<label>Estado Matricula</label>
+<select id="estau" class="form-control input-sm">
+      <option value="0">Seleccione Estado</option>
+                                                    <option value="Activo">Activo</option>
+                                                    <option value="Baja">De Baja</option> 
+                                                    <option value="Egresado">Egresado</option>                                    
+  </select>
+
+
+
+ 
+                                   
+                                                                                                     
+<label>Numero de Telefono o Celular</label>
+<input  id="telau" placeholder="Telefono o Celular de Contacto" class="form-control">
+
+<label >Codigo De Alumno</label>
+<input  id="codigoau" placeholder="Codigo De Matricula" class="form-control">
+                                                  
+<label >Departamento</label>
+<input id="departau" placeholder="Departamento" class="form-control">
+                                                  
+<label >Municipio</label>
+<input  id="municipiou" placeholder="Municipio" class="form-control">
+                                                  
+
+
+                                                                                       
+<label>Direccion </label>
+<input  id="direccionau" placeholder="Dirección del Alumno" class="form-control">
+
+                                                                                                              
+<label>Nombre Tutor </label>
+<input  id="tutoru" placeholder="Nombre Tutor" class="form-control">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-success">
+        <span class="fa fa-plus"></span> Actualizar
+        </button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+                        
+
+

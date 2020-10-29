@@ -1,0 +1,175 @@
+<div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                              
+                                
+
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <center>
+                                        <strong>Registro y listado De Usuarios</strong>
+                                    </center>
+
+                                          
+                        
+                    
+                        <button class="btn btn-info float-right" data-toggle="modal" data-target="#exampleModal">
+                        <span class="fa fa-plus"></span>
+                Agregar nuevo 
+				
+			</button>
+
+
+                                    </div>
+<div class="card-body card-block">
+
+<table id="table" class="display">
+<thead>
+
+<tr>
+<th>Id</th>
+<th>Nombre</th>
+<th>Password</th>
+<th>Privilegio</th>
+<th>Accion</th>
+</tr>
+
+
+</thead>
+
+<tbody>
+
+<?= $this->tabla ?>
+
+
+</tbody>
+
+
+</table>
+
+
+
+                                    
+</div>
+
+
+                                    
+
+
+
+
+                                    <div class="card-footer">
+                                       
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                            
+                        </div>
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal para inserccion de usuarios -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Usuarios</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="POST">
+      <div class="modal-body">
+      <input type="hidden" name="addu" value="1"/>
+      <label>Nombre Usuario</label>
+      <input type="text" name="nusuario" class="form-control input-sm" required>
+      <label>Contraseña</label>
+      <input type="text" name="clave"  class="form-control input-sm"required>
+        	
+      <label>Tipo De Usuario</label>
+      <select  name="priv" class="form-control input-sm" required> 
+      <option value="">Seleccione Tipo de Usuario </option>
+      <option value="Administrador">Administrador</option>
+      </select>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">
+        <span class="fa fa-plus"></span> Agregar
+        </button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal para la edicion de datos de usuarios -->
+<div class="modal fade" id="editarusuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Actualizar Usuarios</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="POST" id="formEditarU">
+      <div class="modal-body">
+      <label for="">ID</label>
+      <input type="number" class="form-control" id="idu" readonly="readonly"/>
+      <label>Nombre Usuario</label>
+      <input type="text" name="actunusuario" id="aus" class="form-control input-sm" required>
+      <label>Contraseña</label>
+      <input type="text" name="actuclave" id="acon"  class="form-control input-sm"required>
+        	
+      <label>Tipo De Usuario</label>
+      <select  name="actupriv" id="atu" class="form-control input-sm" required> 
+      <option value="">Seleccione Tipo de Usuario </option>
+      <option value="Administrador">Administrador</option>
+      </select>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-success">
+        <span class="fa fa-plus"></span> Actualizar
+        </button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+                        
+
+
+ 

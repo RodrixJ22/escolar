@@ -1,0 +1,12 @@
+
+<?php 
+include "header.php";
+?>
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Pagina de Inicio</h1>
+
+     
+<?php 
+include "footer.php";
+?>
