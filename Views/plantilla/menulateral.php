@@ -113,8 +113,16 @@
           <i class="fas fa-graduation-cap"></i>
           <span>Alumno</span></a>
       </li>
+      
 
+      <hr class="sidebar-divider">
 
+<!-- Nav Item - Dashboard -->
+<li class="nav-item active">
+<a class="nav-link" href="<?= BASE_URL ?>alumnos">
+<i class="fas fa-chalkboard-teacher"></i>
+<span>Asignar Alumno a grupo</span></a>
+</li>
     
 
 

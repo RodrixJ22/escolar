@@ -36,7 +36,7 @@ $.ajax({
     $('#editarusuario').modal('hide');
     $("#table").DataTable().destroy();
     $("#table tbody").html(respuesta);
-    $("#table").DataTable();
+    $("#table").DataTable({responsive: true});
     
     
     Swal.fire(
@@ -86,7 +86,7 @@ $("#table").on("click",".btBorrar", function () {
             success:function(respuesta){
               $("#table").DataTable().destroy();
               $("#table tbody").html(respuesta);
-              $("#table").DataTable();
+              $("#table").DataTable({responsive: true});
 
             }
             ,
@@ -154,7 +154,8 @@ $("#agregarProf").on("submit", function(e){
       $('#ingresarprof').modal('hide');
       $("#table").DataTable().destroy();
       $("#table tbody").html(respuesta);
-      $("#table").DataTable();
+      $("#table").DataTable({responsive: true});
+      
       
 
       
@@ -223,7 +224,7 @@ $.ajax({
     $('#editarprof').modal('hide');
     $("#table").DataTable().destroy();
     $("#table tbody").html(respuesta);
-    $("#table").DataTable();
+    $("#table").DataTable({responsive: true});
     
     
     Swal.fire(
@@ -273,7 +274,7 @@ $("#table").on("click",".btBorrarP", function () {
             success:function(respuesta){
               $("#table").DataTable().destroy();
               $("#table tbody").html(respuesta);
-              $("#table").DataTable();
+              $("#table").DataTable({responsive: true});
 
             }
             ,
@@ -342,7 +343,7 @@ $("#agregarAlum").on("submit", function(e){
     success:function (respuesta) {
       $('#agregarAlum').modal('hide');
       $("#table tbody").html(respuesta);
-      $("#table").DataTable();
+      $("#table").DataTable({responsive: true});
       
 
       
@@ -412,7 +413,7 @@ $.ajax({
     $('#editarA').modal('hide');
     $("#table").DataTable().destroy();
     $("#table tbody").html(respuesta);
-    $("#table").DataTable();
+    $("#table").DataTable({responsive: true});
     
     
     Swal.fire(
@@ -523,7 +524,7 @@ $("#agregarGrup").on("submit", function(e){
     success:function (respuesta) {
       $('#agregarGrupo').modal('hide');
       $("#table tbody").html(respuesta);
-      $("#table").DataTable();
+      $("#table").DataTable({responsive: true});
       
 
       
@@ -574,8 +575,7 @@ $.ajax({
     $('#editarGrupo').modal('hide');
     $("#table").DataTable().destroy();
     $("#table tbody").html(respuesta);
-    $("#table").DataTable();
-    
+    $("#table").DataTable({responsive: true});
     
     Swal.fire(
       'Se actualizo con exito!',
@@ -623,7 +623,7 @@ $("#table").on("click",".btBorrarG", function () {
             success:function(respuesta){
               $("#table").DataTable().destroy();
               $("#table tbody").html(respuesta);
-              $("#table").DataTable();
+              $("#table").DataTable({responsive: true});
 
             }
             ,
@@ -681,7 +681,7 @@ $("#agregarMat").on("submit", function(e){
     success:function (respuesta) {
       $('#agregarmateria').modal('hide');
       $("#table tbody").html(respuesta);
-      $("#table").DataTable();
+      $("#table").DataTable({responsive: true});
       
 
       
@@ -727,7 +727,7 @@ $.ajax({
     $('#editarMateria').modal('hide');
     $("#table").DataTable().destroy();
     $("#table tbody").html(respuesta);
-    $("#table").DataTable();
+    $("#table").DataTable({responsive: true});
     
     
     Swal.fire(
@@ -744,3 +744,74 @@ $.ajax({
   }
 });
 });
+
+
+
+/* Borrar Materia */
+$("#table").on("click",".btBorrarM", function () {
+
+
+  Swal.fire({
+      title: 'Está seguro?',
+      text: "No podrá recuperar los datos!",
+      icon: 'warning',
+      confirmButtonColor: '#d9534f',
+      cancelButtonColor: '#428bca',
+      showCloseButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminarlo!',
+      cancelButtonText: 'No, cancelar',
+      
+      reverseButtons:true
+  }).then((result) => {
+      if (result.isConfirmed) {
+
+        
+        
+        var id_m= $(this).attr('data-m');
+       
+          $.ajax({
+            url: 'materia/borrarm/',
+            type: "POST",
+            data: {'id_m':id_m },
+            success:function(respuesta){
+              $("#table").DataTable().destroy();
+              $("#table tbody").html(respuesta);
+              $("#table").DataTable({responsive: true});
+
+            }
+            ,
+
+
+
+
+                error: function () {
+                  console.log('Error');
+              }
+          });
+
+          Swal.fire(
+            'Borrado',
+            'el registro a sido eliminado',
+            'success'
+
+
+          )
+
+      } else if (
+        result.dismiss === Swal.DismissReason.cancel
+      ){
+        Swal.fire(
+        'cancelado',
+        'el registro esta a salvo',
+        'error'
+
+        )
+
+      }
+
+
+
+  })
+});
+

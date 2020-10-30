@@ -31,7 +31,7 @@ public function vermateria(){
 
  
 
- <button data-g='.$fila[$i]['id_materia'].' class="btn btn-danger btn-circle btBorrarG">
+ <button data-m='.$fila[$i]['id_materia'].' class="btn btn-danger btn-circle btBorrarM">
  <i class="fas fa-trash"> </i>
  </button>
 
@@ -78,6 +78,12 @@ public function editarm(){
     $this->_mat->actualizarmat($this->getTexto('idm'),$this->getTexto('nmu'),$this->getTexto('grupu'));
     echo $this->vermateria();
 }
+
+public function borrarm(){
+    $this->_mat->borrarmat($this->getTexto('id_m'));
+    echo $this->vermateria();
+}
+
 
 
 

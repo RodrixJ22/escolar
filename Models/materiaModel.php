@@ -30,8 +30,8 @@ class materiaModel extends Model{
             'nmu'=>$nmu, 'grupu'=>$grupu, 'idm'=>$idm));
      }
 
-     public function borrargrup($id_g){
-         $this->_db->prepare('delete from grupos where id_grupo=:id_g')->execute(array('id_g'=>$id_g));
+     public function borrarmat($id_m){
+         $this->_db->prepare('delete from materia where id_materia=:id_m')->execute(array('id_m'=>$id_m));
      }
 
     
