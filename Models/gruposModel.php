@@ -18,27 +18,21 @@ class gruposModel extends Model{
 
     
 
-    public function agregaralum($pna,$sna,$paa,$saa,$fechaa,$edada,$sexoa,$esta,$tela,$coda,$dep,$mun,$direa,$tut){
-         $this->_db->prepare('insert into alumnos(p_nombre,s_nombre,p_apellido,s_apellido,f_nacimiento,edad,sexo,estado_matricula,
-         cod_alum,telefono_contac,direccion,departamento,municipio,nombre_tutor)
-         values(:pna,:sna,:paa,:saa,:fechaa,:edada,:sexoa,:esta,:coda,:tela,:direa,:dep,:mun,:tut)')->execute
-         (array('pna'=>$pna, 'sna'=>$sna, 'paa'=>$paa, 'saa'=>$saa, 'fechaa'=>$fechaa, 'edada'=>$edada, 
-         'sexoa'=>$sexoa, 'esta'=>$esta, 'coda'=>$coda, 'tela'=>$tela, 'direa'=>$direa, 'dep'=>$dep, 'mun'=>$mun , 'tut'=>$tut ));
+    public function agregargrup($axo,$sec,$tur,$mod,$prof){
+         $this->_db->prepare('insert into grupos(axo,seccion,turno,modalidad,docente_id_docente)
+         values(:axo,:sec,:tur,:mod,:prof)')->execute
+         (array('axo'=>$axo, 'sec'=>$sec, 'tur'=>$tur, 'mod'=>$mod, 'prof'=>$prof ));
      }
 
 
-     public function actualizaralum($ida,$pna,$sna,$paa,$saa,$feca,$eda,$sex,$estad,$coda,$tela,$dira,$depa,$muna,$tuta){
-         return $this->_db->prepare("update alumnos set p_nombre=:pna,s_nombre=:sna,p_apellido=:paa,
-         s_apellido=:saa,f_nacimiento=:feca,edad=:eda,sexo=:sex,estado_matricula=:estad,
-         cod_alum=:coda,telefono_contac=:tela,direccion=:dira,departamento=:depa,municipio=:muna,nombre_tutor=:tuta
-          where id_alumno=:ida")->execute(array(
-            'pna'=>$pna, 'sna'=>$sna, 'paa'=>$paa, 'saa'=>$saa, 'feca'=>$feca, 'eda'=>$eda, 
-            'sex'=>$sex, 'estad'=>$estad, 'coda'=>$coda, 'tela'=>$tela, 'dira'=>$dira, 'depa'=>$depa 
-            , 'muna'=>$muna, 'tuta'=>$tuta , 'ida'=>$ida));
+     public function actualizargrup($idg,$axou,$secu,$turu,$modu,$profu){
+         return $this->_db->prepare("update grupos set axo=:axou,seccion=:secu,turno=:turu,
+         modalidad=:modu,docente_id_docente=:profu where id_grupo=:idg")->execute(array(
+            'axou'=>$axou, 'secu'=>$secu, 'turu'=>$turu, 'modu'=>$modu, 'profu'=>$profu, 'idg'=>$idg));
      }
 
-     public function borraralum($id_a){
-         $this->_db->prepare('delete from alumnos where id_alumno=:id_a')->execute(array('id_a'=>$id_a));
+     public function borrargrup($id_g){
+         $this->_db->prepare('delete from grupos where id_grupo=:id_g')->execute(array('id_g'=>$id_g));
      }
 
     

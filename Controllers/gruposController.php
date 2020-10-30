@@ -27,14 +27,14 @@ public function vergrupos(){
         <td>'.$fila[$i]['docente_id_docente'].'</td>
         
         <td>
-        <button data-a=\''.$datos.'\' data-toggle="modal" data-target="#editarA" class="btn btn-info btn-circle btEditarA">
+        <button data-g=\''.$datos.'\' data-toggle="modal" data-target="#editarGrupo" class="btn btn-info btn-circle btEditarG">
           <i class="fas fa-info-circle"> </i>
           </button>
 
 
  
 
- <button data-a='.$fila[$i]['id_grupo'].' class="btn btn-danger btn-circle btBorrarA">
+ <button data-g='.$fila[$i]['id_grupo'].' class="btn btn-danger btn-circle btBorrarG">
  <i class="fas fa-trash"> </i>
  </button>
 
@@ -74,7 +74,23 @@ $this->_view->renderizar('grupos');
 }
 
 
+public function insertargrup(){
+    $this->_grup->agregargrup($this->getTexto('axo'),$this->getTexto('sec'),$this->getTexto('tur'),$this->getTexto('mod')
+    ,$this->getTexto('prof'));
+    echo $this->vergrupos();
+}
 
+
+public function editarg(){
+    $this->_grup->actualizargrup($this->getTexto('idg'),$this->getTexto('axou'),$this->getTexto('secu'),$this->getTexto('turu')
+    ,$this->getTexto('modu'),$this->getTexto('profu'));
+    echo $this->vergrupos();
+}
+
+public function borrarg(){
+    $this->_grup->borrargrup($this->getTexto('id_g'));
+    echo $this->vergrupos();
+}
 
 
 }

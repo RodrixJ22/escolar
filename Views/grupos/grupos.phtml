@@ -97,23 +97,26 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar Profesores</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Grupos</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
+      <form method="POST" id="agregarGrup">
       <div class="modal-body">
         
+
         
-      <label for="axo">Año</label>
+      <label>Año</label>
     <select class="form-control" id="axo">
     <option value="0">Seleccione un Año </option>
-                                                        <option value="Primero">1er Grado</option>
-                                                        <option value="Segundo">2do Grado</option>
-                                                        <option value="Tercero">3er Grado</option>
-                                                        <option value="Cuarto">4to Grado</option>
-                                                        <option value="Quinto">5to Grado</option>
-                                                        <option value="Sexto">6to Grado</option>  
+                                                        <option value="1">1er Grado</option>
+                                                        <option value="2">2do Grado</option>
+                                                        <option value="3">3er Grado</option>
+                                                        <option value="4">4to Grado</option>
+                                                        <option value="5">5to Grado</option>
+                                                        <option value="6">6to Grado</option>  
     </select>
     <label for="sec">Sección</label>
     <select class="form-control" id="sec">
@@ -124,8 +127,8 @@
                                                         <option value="D">D</option> 
     </select>                           
                                                                                       
-    <label for="grupo">Turno</label>
-    <select class="form-control" id="grupo">
+    <label >Turno</label>
+    <select class="form-control" id="turno">
     <option value="0">Seleccione Turno </option>
     <option value="Despertino">Despertino</option>
     <option value="Vespertino">Vespertino</option>  
@@ -150,15 +153,94 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" id="guardarnuevo">
-        <span class="fa fa-plus"></span> Agregar
+        <button type="submit" class="btn btn-primary">
+        <span class="fa fa-plus"></span> Agregar Grupo
         </button>
       </div>
+      </form>
     </div>
   </div>
 </div>
 
 
+<!-- Modal para Editar los datos-->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="editarGrupo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Grupos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form method="POST" id="formEditarG">
+      <div class="modal-body">
+        
+      <label for="">ID</label>
+      <input type="number" class="form-control" id="idg" readonly="readonly"/>
+
+        
+      <label>Año</label>
+    <select class="form-control" id="axou">
+    <option value="0">Seleccione un Año </option>
+                                                        <option value="1">1er Grado</option>
+                                                        <option value="2">2do Grado</option>
+                                                        <option value="3">3er Grado</option>
+                                                        <option value="4">4to Grado</option>
+                                                        <option value="5">5to Grado</option>
+                                                        <option value="6">6to Grado</option>  
+    </select>
+    <label for="sec">Sección</label>
+    <select class="form-control" id="secu">
+    <option value="0">Seleccione la sección </option>
+                                                        <option value="A">A</option>
+                                                        <option value="B">B</option>
+                                                        <option value="C">C</option>
+                                                        <option value="D">D</option> 
+    </select>                           
+                                                                                      
+    <label >Turno</label>
+    <select class="form-control" id="turnou">
+    <option value="0">Seleccione Turno </option>
+    <option value="Despertino">Despertino</option>
+    <option value="Vespertino">Vespertino</option>  
+    </select>                                    
+                                                                                          
+    <label for="mod">Modalidad</label>
+    <select class="form-control" id="modu">
+    <option value="0">Seleccione Modalidad </option>
+    <option value="Regular">Regular</option>  
+    </select>      
+
+     <label for="prof">Profesor</label>                                                                                       
+    <select class="form-control" id="profu">
+    <option value="0">Seleccione Profesor</option>
+    <option value="1">Jose</option>  
+    </select>
+
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" id="guardaralum" class="btn btn-primary">
+        <span class="fa fa-plus"></span> Agregar Grupo
+        </button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+                        
                         
 
 

@@ -501,3 +501,162 @@ $("#table").on("click",".btBorrarA", function () {
   })
 });
 
+
+
+/* Funciones CRUD para seccion Grupos */
+
+
+/* Insertar Grupos */
+$("#agregarGrup").on("submit", function(e){
+
+  var axo = $("#axo").val();
+  var sec = $("#sec").val();
+  var tur = $("#turno").val();
+  var mod = $("#mod").val();
+  var prof = $("#prof").val();
+  e.preventDefault();
+  $.ajax({
+    url:'grupos/insertargrup/',
+    type:'post',
+    data:{'axo':axo,'sec':sec,'tur':tur,'mod':mod,'prof':prof
+    },
+    success:function (respuesta) {
+      $('#agregarGrupo').modal('hide');
+      $("#table tbody").html(respuesta);
+      $("#table").DataTable();
+      
+
+      
+      
+      Swal.fire(
+        'Se ingreso con exito!',
+        'el registro',
+        'success'
+      )
+  
+  
+    }
+    ,
+    error:function () {
+      console.log('Error');
+    }
+  });
+});
+
+
+/*  Editar Grupos */
+
+$("#table").on("click",".btEditarG",function(){
+  var datos = JSON.parse($(this).attr('data-g'));
+  $("#idg").val(datos['id_grupo']);
+  $("#axou").val(datos['axo']);
+  $("#secu").val(datos['seccion']);
+  $("#turnou").val(datos['turno']);
+  $("#modu").val(datos['modalidad']);
+  $("#profu").val(datos['docente_id_docente']);
+  
+});
+
+$("#formEditarG").submit(function(e){
+var idg = $("#idg").val();
+var axou = $("#axou").val();
+var secu = $("#secu").val();
+var turu= $("#turnou").val();
+var modu = $("#modu").val();
+var profu = $("#profu").val();
+
+e.preventDefault();
+$.ajax({
+  url:'grupos/editarg/',
+  type:'post',
+  data:{'idg':idg,'axou':axou,'secu':secu,'turu':turu,'modu':modu,'profu':profu},
+  success:function (respuesta) {
+    $('#editarGrupo').modal('hide');
+    $("#table").DataTable().destroy();
+    $("#table tbody").html(respuesta);
+    $("#table").DataTable();
+    
+    
+    Swal.fire(
+      'Se actualizo con exito!',
+      'el registro',
+      'success'
+    )
+
+
+  }
+  ,
+  error:function () {
+    console.log('Error');
+  }
+});
+});
+
+
+/* Borrar Grupos */
+$("#table").on("click",".btBorrarG", function () {
+
+
+  Swal.fire({
+      title: 'Está seguro?',
+      text: "No podrá recuperar los datos!",
+      icon: 'warning',
+      confirmButtonColor: '#d9534f',
+      cancelButtonColor: '#428bca',
+      showCloseButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminarlo!',
+      cancelButtonText: 'No, cancelar',
+      
+      reverseButtons:true
+  }).then((result) => {
+      if (result.isConfirmed) {
+
+        
+        
+        var id_g= $(this).attr('data-g');
+       
+          $.ajax({
+            url: 'grupos/borrarg/',
+            type: "POST",
+            data: {'id_g':id_g },
+            success:function(respuesta){
+              $("#table").DataTable().destroy();
+              $("#table tbody").html(respuesta);
+              $("#table").DataTable();
+
+            }
+            ,
+
+
+
+
+                error: function () {
+                  console.log('Error');
+              }
+          });
+
+          Swal.fire(
+            'Borrado',
+            'el registro a sido eliminado',
+            'success'
+
+
+          )
+
+      } else if (
+        result.dismiss === Swal.DismissReason.cancel
+      ){
+        Swal.fire(
+        'cancelado',
+        'el registro esta a salvo',
+        'error'
+
+        )
+
+      }
+
+
+
+  })
+});
