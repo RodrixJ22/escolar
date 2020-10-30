@@ -660,3 +660,87 @@ $("#table").on("click",".btBorrarG", function () {
 
   })
 });
+
+
+
+/* Funciones CRUD para seccion Materia */
+
+
+/* Insertar Grupos */
+$("#agregarMat").on("submit", function(e){
+
+  var nm = $("#nm").val();
+  var gru = $("#grup").val();
+  
+  e.preventDefault();
+  $.ajax({
+    url:'materia/insertarmat/',
+    type:'post',
+    data:{'nm':nm,'gru':gru
+    },
+    success:function (respuesta) {
+      $('#agregarmateria').modal('hide');
+      $("#table tbody").html(respuesta);
+      $("#table").DataTable();
+      
+
+      
+      
+      Swal.fire(
+        'Se ingreso con exito!',
+        'el registro',
+        'success'
+      )
+  
+  
+    }
+    ,
+    error:function () {
+      console.log('Error');
+    }
+  });
+});
+
+
+/*  Editar Grupos */
+
+$("#table").on("click",".btEditarM",function(){
+  var datos = JSON.parse($(this).attr('data-m'));
+  $("#idm").val(datos['id_materia']);
+  $("#nmu").val(datos['nombre_materia']);
+  $("#grupu").val(datos['grupos_id_grupo']);
+  
+});
+
+$("#formEditarM").submit(function(e){
+var idm = $("#idm").val();
+var nmu = $("#nmu").val();
+var grupu = $("#grupu").val();
+
+
+e.preventDefault();
+$.ajax({
+  url:'materia/editarm/',
+  type:'post',
+  data:{'idm':idm,'nmu':nmu,'grupu':grupu},
+  success:function (respuesta) {
+    $('#editarMateria').modal('hide');
+    $("#table").DataTable().destroy();
+    $("#table tbody").html(respuesta);
+    $("#table").DataTable();
+    
+    
+    Swal.fire(
+      'Se actualizo con exito!',
+      'el registro',
+      'success'
+    )
+
+
+  }
+  ,
+  error:function () {
+    console.log('Error');
+  }
+});
+});

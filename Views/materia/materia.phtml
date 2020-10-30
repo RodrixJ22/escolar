@@ -14,7 +14,7 @@
                                           
                         
                     
-                        <button class="btn btn-info float-right" data-toggle="modal" data-target="#exampleModal">
+                        <button class="btn btn-info float-right" data-toggle="modal" data-target="#agregarmateria">
                         <span class="fa fa-plus"></span>
                 Agregar nuevo 
 				
@@ -22,44 +22,34 @@
 
 
                                     </div>
-                                    <div class="card-body card-block">
+ <div class="card-body card-block">
 
-                                    <form>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Nombre de la Materia</label>
-      <input type="text" class="form-control" id="inputEmail4" placeholder="Nombre de la materia">
-    </div>
-    <div class="form-group col-md-6">
+ <table id="table" class="display">
+<thead>
 
-    <label for="grupo">Grupo</label>
-    <select class="form-control" id="grupo">
-    <option value="0">Seleccione Grupo </option>
-    <option value="1">1</option>
-    <option value="2">2</option>  
-    </select>
+<tr>
+<th>Id</th>
+<th>Nombre Materia</th>
+<th>Grupo</th>
+<th>Accion</th>
+</tr>
 
 
+</thead>
+
+<tbody>
+
+<?= $this->tabla ?>
 
 
-    </div>
-  </div>
-
- 
+</tbody>
 
 
-
-
-
-
-
-
- 
-</form>
-
+</table>                                   
+                                   
 
                                     
-                                    </div>
+</div>
 
 
                                     
@@ -99,44 +89,96 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="agregarmateria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar Profesores</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Materia</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <form method="POST" id="agregarMat">
       <div class="modal-body">
         
+      <label>Nombre Materia</label>
+<input type="text" id="nm" placeholder="Nombre de la materia" class="form-control">
+
         
-      <label>Nombre de Materia</label>
-    <input type="text" id="pn" name="" placeholder="Nombre de Materia" class="form-control">
-
-    <label for="grupo">Grupo</label>
-    <select class="form-control" id="grupo">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>                          
-                                                                                        
-               
-
-
-
+      <label>Grupo</label>
+    <select class="form-control" id="grup">
+    <option value="0">Seleccione un Grupo </option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3er Grado</option>
+                                                        <option value="4">4to Grado</option>
+                                                        <option value="5">5to Grado</option>
+                                                        <option value="6">6to Grado</option>  
+    </select>
+   
 
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" id="guardarnuevo">
-        <span class="fa fa-plus"></span> Agregar
+        <button type="submit" class="btn btn-primary">
+        <span class="fa fa-plus"></span> Agregar Materia
         </button>
       </div>
-    </div>
+      </form>
+      </div>
   </div>
 </div>
+
+
+ <!-- Modal para Editar los datos de Materia-->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="editarMateria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Materia</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="POST" id="formEditarM">
+      <div class="modal-body">
+
+      <label for="">ID</label>
+<input type="number" class="form-control" id="idm" readonly="readonly"/>
+        
+      <label>Nombre Materia</label>
+<input type="text" id="nmu" placeholder="Nombre de la materia" class="form-control">
+
+        
+      <label>Grupo</label>
+    <select class="form-control" id="grupu">
+    <option value="0">Seleccione un Grupo </option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3er Grado</option>
+                                                        <option value="4">4to Grado</option>
+                                                        <option value="5">5to Grado</option>
+                                                        <option value="6">6to Grado</option>  
+    </select>
+   
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">
+        <span class="fa fa-plus"></span> Agregar Materia
+        </button>
+      </div>
+      </form>
+      </div>
+  </div>
+</div>
+
+
 
