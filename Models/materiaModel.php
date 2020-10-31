@@ -16,6 +16,9 @@ class materiaModel extends Model{
         return $this->_db->query("select * from materia,grupos where grupos_id_grupo=id_grupo")->fetchAll();
     }
 
+    public function obtenergrup(){
+        return $this->_db->query("select * from grupos")->fetchAll();
+    }
     
 
     public function agregarmat($nm,$gru){

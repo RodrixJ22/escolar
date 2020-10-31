@@ -24,7 +24,7 @@ public function vergrupos(){
         <td>'.$fila[$i]['seccion'].'</td>
         <td>'.$fila[$i]['turno'].'</td>
         <td>'.$fila[$i]['modalidad'].'</td>
-        <td>'.$fila[$i]['docente_id_docente'].'</td>
+        <td>'. $fila[$i]['p_nombre'] . ' '. $fila[$i]['p_apellido'] . '</td>
         
         <td>
         <button data-g=\''.$datos.'\' data-toggle="modal" data-target="#editarGrupo" class="btn btn-info btn-circle btEditarG">
@@ -69,9 +69,26 @@ public function index()
 
 $this->_view->tabla=$this->vergrupos();
 
+
+
+$fila=$this->_grup->obtenerprofesores();
+$datos='<option value="0">Seleccione Profesor</option>';
+
+for($i=0;$i<count($fila);$i++)
+$datos.='<option value="'.$fila[$i]['id_docente'].'">'.$fila[$i]['p_nombre'] .' '. $fila[$i]['p_apellido'] .'</option>';
+
+$this->_view->docentes=$datos;
 $this->_view->renderizar('grupos');
 
+
 }
+
+
+
+
+
+
+
 
 
 public function insertargrup(){

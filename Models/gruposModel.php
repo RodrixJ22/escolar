@@ -16,7 +16,9 @@ class gruposModel extends Model{
         return $this->_db->query("select * from grupos,docente where docente_id_docente=id_docente")->fetchAll();
     }
 
-    
+    public function obtenerprofesores(){
+        return $this->_db->query("select * from docente")->fetchAll();
+    }
 
     public function agregargrup($axo,$sec,$tur,$mod,$prof){
          $this->_db->prepare('insert into grupos(axo,seccion,turno,modalidad,docente_id_docente)

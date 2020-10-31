@@ -20,7 +20,7 @@ public function vermateria(){
         <tr>
         <td>'.$fila[$i]['id_materia'].'</td>
         <td>'.$fila[$i]['nombre_materia'].'</td>
-        <td>'.$fila[$i]['grupos_id_grupo'].'</td>
+        <td>'.$fila[$i]['axo'].'</td>
         
         
         <td>
@@ -64,6 +64,18 @@ return $tabla;
 public function index()
 {
 $this->_view->tabla=$this->vermateria();
+
+
+$fila=$this->_mat->obtenergrup();
+$datos='<option value="0">Seleccione Grupo</option>';
+
+for($i=0;$i<count($fila);$i++)
+$datos.='<option value="'.$fila[$i]['id_grupo'].'">'.$fila[$i]['axo'] .'</option>';
+
+$this->_view->grupos=$datos;
+
+
+
 
 $this->_view->renderizar('materia');
 

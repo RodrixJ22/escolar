@@ -523,6 +523,7 @@ $("#agregarGrup").on("submit", function(e){
     },
     success:function (respuesta) {
       $('#agregarGrupo').modal('hide');
+      $("#table").DataTable().destroy();
       $("#table tbody").html(respuesta);
       $("#table").DataTable({responsive: true});
       
@@ -666,7 +667,7 @@ $("#table").on("click",".btBorrarG", function () {
 /* Funciones CRUD para seccion Materia */
 
 
-/* Insertar Grupos */
+/* Insertar Materia */
 $("#agregarMat").on("submit", function(e){
 
   var nm = $("#nm").val();
@@ -680,8 +681,10 @@ $("#agregarMat").on("submit", function(e){
     },
     success:function (respuesta) {
       $('#agregarmateria').modal('hide');
+      $("#table").DataTable().destroy();
       $("#table tbody").html(respuesta);
       $("#table").DataTable({responsive: true});
+      $('#agregarMat')[0].reset();
       
 
       
